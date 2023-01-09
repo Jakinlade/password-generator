@@ -98,7 +98,7 @@ function getPasswordOptions() {
     'How many characters would you like your password to be?'
   );
   while (passwordLength < 10 || passwordLength > 64) {
-    alert('Please choose a password length between 10 and 65 characters.');
+    alert('Please choose a password length between 10 and 64 characters.');
     passwordLength = prompt(
       'How many characters would you like your password to be?');
   }
@@ -130,7 +130,12 @@ function getPasswordOptions() {
   if (useSpecial) {
     selectedCharacters = selectedCharacters.concat(specialCharacters);
   }
-      console.log(selectedCharacters)
+
+  // return selectedCharacters and passwordLength
+  return {
+    passwordLength: passwordLength,
+    selectedCharacters: selectedCharacters
+  }
 }
 
 getPasswordOptions();
@@ -147,7 +152,7 @@ function generatePassword() {
   // initialize password array
   var password = [];
 
-  for (let i = 0 < passwordOptions.passwordLength; i++;) {
+  for (let i = 0; i < passwordOptions.passwordLength; i++) {
     // get a random element from the selectedCharacters array
     var randomCharacter = getRandom(passwordOptions.selectedCharacters);
     // add the random element to the password array
