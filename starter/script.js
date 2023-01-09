@@ -88,58 +88,6 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-
-
-// Function to prompt user for password options
-// prompt for user to choose length of password between 10 and 64 characters
-
-function getPasswordOptions() {
-  var passwordLength = prompt(
-    'How many characters would you like your password to be?'
-  );
-  while (passwordLength < 10 || passwordLength > 64) {
-    alert('Please choose a password length between 10 and 64 characters.');
-    passwordLength = prompt(
-      'How many characters would you like your password to be?');
-  }
-  // Ask user which character types they want to use in the password
-  let useLowercase = confirm('Include lowercase characters in the password?');
-  let useUppercase = confirm('Include uppercase characters in the password?');
-  let useNumeric = confirm('Include numeric characters in the password?');
-  let useSpecial = confirm('Include special characters in the password?');
-  while (!useLowercase && !useUppercase && !useNumeric && !useSpecial) {
-    alert('Please choose at least one character type.');
-    useLowercase = confirm('Include lowercase characters in the password?');
-    useUppercase = confirm('Include uppercase characters in the password?');
-    useNumeric = confirm('Include numeric characters in the password?');
-    useSpecial = confirm('Include special characters in the password?');
-  }
-  // create selectedCharacters array
-  let selectedCharacters = []
-
-  // add the selected characters to the selectedCharacter array
-  if (useLowercase) {
-    selectedCharacters = selectedCharacters.concat(lowerCasedCharacters);
-  }
-  if (useUppercase) {
-    selectedCharacters = selectedCharacters.concat(upperCasedCharacters);
-  }
-  if (useNumeric) {
-    selectedCharacters = selectedCharacters.concat(numericCharacters);
-  }
-  if (useSpecial) {
-    selectedCharacters = selectedCharacters.concat(specialCharacters);
-  }
-
-  // return selectedCharacters and passwordLength
-  return {
-    passwordLength: passwordLength,
-    selectedCharacters: selectedCharacters
-  }
-}
-
-getPasswordOptions();
-
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -147,6 +95,53 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+    // Function to prompt user for password options
+// prompt for user to choose length of password between 10 and 64 characters
+
+    function getPasswordOptions() {
+      var passwordLength = prompt(
+        'How many characters would you like your password to be?'
+      );
+      while (passwordLength < 10 || passwordLength > 64) {
+        alert('Please choose a password length between 10 and 64 characters.');
+        passwordLength = prompt(
+          'How many characters would you like your password to be?');
+      }
+      // Ask user which character types they want to use in the password
+      let useLowercase = confirm('Include lowercase characters in the password?');
+      let useUppercase = confirm('Include uppercase characters in the password?');
+      let useNumeric = confirm('Include numeric characters in the password?');
+      let useSpecial = confirm('Include special characters in the password?');
+      while (!useLowercase && !useUppercase && !useNumeric && !useSpecial) {
+        alert('Please choose at least one character type.');
+        useLowercase = confirm('Include lowercase characters in the password?');
+        useUppercase = confirm('Include uppercase characters in the password?');
+        useNumeric = confirm('Include numeric characters in the password?');
+        useSpecial = confirm('Include special characters in the password?');
+      }
+      // create selectedCharacters array
+      let selectedCharacters = []
+
+      // add the selected characters to the selectedCharacter array
+      if (useLowercase) {
+        selectedCharacters = selectedCharacters.concat(lowerCasedCharacters);
+      }
+      if (useUppercase) {
+        selectedCharacters = selectedCharacters.concat(upperCasedCharacters);
+      }
+      if (useNumeric) {
+        selectedCharacters = selectedCharacters.concat(numericCharacters);
+      }
+      if (useSpecial) {
+        selectedCharacters = selectedCharacters.concat(specialCharacters);
+      }
+
+      // return selectedCharacters and passwordLength
+      return {
+        passwordLength: passwordLength,
+        selectedCharacters: selectedCharacters
+      }
+    }
   // get password options from previous function
   var passwordOptions = getPasswordOptions();
   // initialize password array
@@ -161,7 +156,7 @@ function generatePassword() {
 
   return password.join('');
 }
-generatePassword()
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
