@@ -107,7 +107,7 @@ function getPasswordOptions() {
   let useUppercase = confirm('Include uppercase characters in the password?');
   let useNumeric = confirm('Include numeric characters in the password?');
   let useSpecial = confirm('Include special characters in the password?');
-  while (!useLowercase && !useUppercase && !useNumeric && !useSpecial && !useSpecial) {
+  while (!useLowercase && !useUppercase && !useNumeric && !useSpecial) {
     alert('Please choose at least one character type.');
     useLowercase = confirm('Include lowercase characters in the password?');
     useUppercase = confirm('Include uppercase characters in the password?');
@@ -132,11 +132,9 @@ function getPasswordOptions() {
   }
       console.log(selectedCharacters)
 }
+
 getPasswordOptions();
 
-
-
-// Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -146,7 +144,7 @@ function getRandom(arr) {
 function generatePassword() {
   // get password options from previous function
   var passwordOptions = getPasswordOptions();
-  // initialise password array
+  // initialize password array
   var password = [];
 
   for (let i = 0 < passwordOptions.passwordLength; i++;) {
@@ -158,6 +156,7 @@ function generatePassword() {
 
   return password.join('');
 }
+generatePassword()
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
