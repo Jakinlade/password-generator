@@ -93,10 +93,10 @@ function getRandom(arr) {
 }
 
 
-// Function to generate password with user input
+/ Function to generate password with user input
 function generatePassword() {
     // Function to prompt user for password options
-// prompt for user to choose length of password between 10 and 64 characters
+// prompt for/ user to choose length of password between 10 and 64 characters
 
     function getPasswordOptions() {
       var passwordLength = prompt(
