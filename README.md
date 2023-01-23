@@ -22,7 +22,7 @@ Additionally, I enhanced the UI and added more feature such as checking the leng
 
 ## Website Screenshot
 
-![screenshot of website](./assets/screenshot.png)
+![screenshot of website](./assets/images/screenshot.png)
 
 <br>
 
